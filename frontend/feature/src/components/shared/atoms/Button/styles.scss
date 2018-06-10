@@ -1,0 +1,119 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: hsla(0, 0%, 35%, 0.91);
+  background-color: hsla(0, 0%, 100%, 0.81);
+  min-width: calc(36px * 2);
+  min-height: 36px;
+  border-radius: 0.25em;
+  margin: 4px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 0.3s;
+  position: relative;
+  box-shadow: 0 0 0 1px hsla(214, 45%, 26%, 0.06), 0 1px 2px 0 hsla(214, 45%, 26%, 0.21);
+  cursor: pointer;
+  font-weight: 600;
+  :hover {
+    box-shadow: 0 0 0 0 hsla(214, 45%, 26%, 0.06), 0 1px 2px 0 hsla(214, 45%, 26%, 0.21);
+  }
+  :active {
+    transition-duration: 0.05s;
+    box-shadow: 0 0 0 1px hsla(214, 45%, 26%, 0.06), 0 1px 1px 0 hsla(214, 45%, 26%, 0.21);
+    &::after {
+      opacity: 0.1;
+      transition-duration: 0.05s, 0s;
+      transform: scale(0);
+    }
+    &::before {
+      opacity: 1;
+      transition-duration: 0s;
+    }
+  }
+  &[theme='danger'] {
+    color: #FFF;
+    background: #f41616;
+  }
+  &[theme='danger-borderless'] {
+    color: #f41616;
+    background: #FFF;
+    box-shadow: none;
+  }
+  &[theme='primary'] {
+    color: #FFF;
+    background: #1676f4;
+  }
+  &[theme='primary-borderless'] {
+    color: #1676f4;
+    background: #FFF;
+    box-shadow: none;
+  }
+  &[no-caption='true'] {
+    min-width: 36px;
+  }
+  button {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 4px calc(36px / 3 + 0.25em / 2);
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    text-transform: inherit;
+    outline: none;
+    min-height: inherit;
+    text-shadow: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: inherit;
+    line-height: calc(36px - 13px);
+    clear: both;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: hsla(214, 45%, 26%, 0.06);
+      border-radius: 0.25em;
+      opacity: 0;
+      transition: opacity 0.2s;
+      will-change: opacity;
+      pointer-events: none;
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    &::after {
+      background-color: currentColor;
+      transition: opacity 1.4s, transform 0.1s;
+      will-change: opacity, transform;
+      filter: blur(8px);
+    }
+    img {
+      box-shadow: none !important;
+      vertical-align: middle;
+      fill: currentColor;
+      &[position='left'] {
+        float: left;
+        margin-right: 5px;
+      }
+      &[position='right'] {
+        float: right;
+        margin-left: 5px;
+      }
+    }
+  }
+}

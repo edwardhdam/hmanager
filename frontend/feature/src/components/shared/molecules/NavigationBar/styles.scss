@@ -1,0 +1,100 @@
+.root {
+    padding: 0 24px;
+    width: 200px;
+    background: #f8f9f9;
+    height: 100vh;
+    font-family: inherit;
+    box-shadow: inset -4px 0 16px -9px rgba(0, 0, 0, 0.5);
+    div {
+      &[part='header'] {
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+      &[part='info'] {
+        margin-bottom: 18px;
+        padding-top: 10px;
+        width: inherit;
+        font-weight: 600px;
+        font-size: 2rem;
+        min-height: 30px;
+        color: rgba(0, 0, 0, 0.54);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+      }
+      &[part='menu'] {
+        div {
+          display: flex;
+          align-items: center;  
+          cursor: pointer;
+          min-height: 36px;
+          font-size: 1.6rem;
+          color: rgba(0, 0, 0, 0.54);
+          &[menu-selected] {
+            color: black;
+            background-color: rgba(36, 62, 96, 0.06);
+            div {
+              &[menu-icon] {
+                color: black;
+              }
+            }
+          }
+          &[menu-icon] {
+            font-size: 2.4rem;
+            min-width: 36px;
+            padding: 0px 5px;
+          }
+          &:not([menu-icon]):hover {
+            background-color: rgba(36, 62, 96, 0.06);
+          }
+        }
+      }
+      &[part='user'] {
+        padding-top: 26px;
+        height: 200px;
+        font-size: 1.6rem;
+        color:rgba(36, 62, 96, 0.81);
+        div {
+          &[part='profile'] {
+            border-top: 1px solid rgba(0, 0, 0, 0.13);
+            font-weight: 600;
+            padding-top: 26px;
+            padding-bottom: 10px;
+            display: flex;
+            div {
+              &[part='avatar'] {
+                color: #f8f9f9;
+                border-radius: 4px;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                font-weight: 900;
+                font-size: 3rem;
+                justify-content: center;
+                margin-right: 15px;
+                background-color: rgba(36, 62, 96, 0.81);
+              }
+            }
+            small {
+              font-weight: lighter;
+            }
+          }
+          &[part='action'] {
+            div {
+              cursor: pointer;
+              min-height: 24x;
+              line-height: 24px;
+              font-size: 1.8rem;
+              vertical-align: middle;
+              &[menu-selected] {
+                color: black;
+                background-color: rgba(36, 62, 96, 0.21);
+              }
+              &:hover {
+                color: rgba(36, 62, 96, 1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }

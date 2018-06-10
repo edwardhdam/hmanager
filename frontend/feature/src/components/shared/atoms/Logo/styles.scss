@@ -1,0 +1,61 @@
+.root {
+    display: flex;
+    height: 30px;
+    font-size: 2.2rem;
+    position: relative;
+    
+    &[theme='light'] {
+      color: #f8f9f9;
+      div{
+        &[part='symbol'] {
+         background-color: #FFFFFF;
+         color: hsla(214, 45%, 26%, 1);
+        }
+        &[part='presentor'] {
+          text-decoration: underline #f8f9f9;
+        }
+      }
+    }
+    &[theme='dark'] {
+      color: hsla(214, 45%, 26%, .81);
+      div{
+        &[part='symbol'] {
+          background-color: hsla(214, 45%, 26%, 1);
+          color: #FFFFFF;
+        }
+        &[part='presentor'] {
+          text-decoration: underline hsla(214, 45%, 26%, .81);
+        }
+      }
+    }
+    &[data-size='big'] {
+      height: 50px;
+      font-size: 3.8rem;
+      div {
+        &[part='symbol'] {
+          width: 50px;
+          border-radius: 4px;
+        }
+        &[part='presentor'] {
+          padding-left: 10px;
+        }
+      }
+    }
+    div {
+      &[part='symbol'] {
+        height: 100%;
+        width: 30px;
+        border-radius: 3px;
+        left: 0;
+        display: flex;
+        font-weight: 900;
+        justify-content: center;
+      }
+      &[part='presentor'] {
+        font-weight: 900;
+        align-self: center;
+        letter-spacing: 0.1rem;
+        padding-left: 5px;
+      }
+    }
+  }

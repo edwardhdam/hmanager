@@ -1,0 +1,96 @@
+.root {
+  display: inline-block;
+  outline: none;
+  label {
+    &[roles='wrapper'] {
+      display: flex;
+      align-items: baseline;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      input {
+        opacity: 0;
+        position: absolute;
+        &:active:not(:checked)~[roles='checkbox']::before {
+            transition-duration: 0.01s, 0.01s;
+            transform: scale(0);
+            opacity: 0.4;
+        }
+        &:not(:checked):not(:disabled):hover~span[roles='checkbox'] {
+          background-color: hsla(214, 45%, 26%, 0.31);
+        }
+        &:disabled~span {
+          color: #BDBDBD;
+          &[roles='checkbox'] {
+            background-color: hsla(214, 45%, 26%, 0.11) !important;
+            &::after {
+              border-color: hsla(214, 45%, 26%, 0.31) !important;
+            }
+          }
+        }
+        &:checked~span[roles='checkbox'] {
+          opacity: 1;
+          background-color: #1676f4;
+          
+          &::after {
+            opacity: 1;
+            width: 8px;
+            height: 17px;
+          }
+        }
+      }
+      span {
+        &[roles='checkbox'] {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          flex: none;
+          margin: 3px;
+          position: relative;
+          border-radius: 4px;
+          background-color: rgba(36, 62, 96, 0.21);
+          transition: transform 0.2s cubic-bezier(.12, .32, .54, 2), background-color 0.15s;
+          pointer-events: none;
+          will-change: transform;
+          line-height: 19px;
+          &::before {
+            content: "\2003";
+            color: transparent;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background-color: inherit;
+            transform: scale(1.4);
+            opacity: 0;
+            transition: transform 0.1s, opacity 0.8s;
+            will-change: transform, opacity;
+          }
+          &::after {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border: 0 solid #FFF;
+            border-width: 3px 0 0 3px;
+            box-sizing: border-box;
+            transform-origin: 0 0;
+            position: absolute;
+            top: 13px;
+            left: 7px;
+            transform: scale(0.55) rotate(-135deg);
+            opacity: 0;
+            transition: width 0.1s, height 0.4s;
+          }
+        }
+        &[roles='label'] {
+          pointer-events: none;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+          &:not(:empty) {
+            margin: 3px 14px 3px 6px;
+          }
+        }
+      }
+    }
+  }
+}

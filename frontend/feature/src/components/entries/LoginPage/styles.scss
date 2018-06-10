@@ -1,0 +1,47 @@
+.root {
+    font-size: 1.6rem;
+    background-color: #FFFFFF;
+    margin: auto;
+    padding: 40px;
+    border-radius: 5px;
+    width: 370px;
+    height: 420px;
+    box-shadow: 0 0 0 1px hsla(214, 45%, 26%, 0.16),
+    0 1px 2px 0 hsla(214, 45%, 26%, 0.31);
+    div {
+      &[part='sub-title'] {
+        font-size: 4rem;
+        padding-top: 26px;
+        font-weight: 300;
+        color: hsla(214, 45%, 26%, .81);
+        span {
+          font-size: 2rem;
+          font-weight: 900;
+        }
+        small {
+          font-size: 2rem;
+          font-weight: 400;
+        }
+      }
+      &[part='row-spacing'] {
+        height: 20px;
+      }
+      &[part='form'] {
+        padding-top: 26px;
+        padding-bottom: 10px;
+      }
+      &[part='function'] {
+        display: flex;
+        justify-content: flex-end;
+        margin-top:15px;
+        padding-bottom: 25px;
+  
+        .error {
+          color: rgba(255, 71, 58, 1);
+          flex-basis: 100%;
+          line-height: 36px;
+          padding: 4px 0px;
+        }
+      }
+    }
+  }
